@@ -1,0 +1,62 @@
+ <div class="ez-fl ez-negmr ez-75">
+  
+   <div class="ez-box">
+    
+    <div id="filters">
+      Filters: <br />
+      <form action="<%= hours_path %>">
+	Date: &nbsp; <%= date_select :hour, :log_date %> <br /><br />
+	<%- if current_user. has_role?("admin") -%>
+	User: &nbsp; <%= select(:hour, :user_id, User.all.collect{|a| [a.login, a.id]}) %> <br /><br />
+	<%- end -%>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	<input type="submit" value="Get Hours" /> Or <a href="<%= hours_path %>">Clear</a>
+      </form>
+      
+    </div>
+    
+    <div id="log_entries">
+      
+      <h1>Listing hours</h1>
+      
+      <table>
+	<tr>
+	  <th style="border: 1px solid black;">Project</th>
+	  <th style="border: 1px solid black;">User</th>
+	  <th style="border: 1px solid black;">Activity</th>
+	  <th style="border: 1px solid black;">Log date</th>
+	  <th style="border: 1px solid black;">From</th>
+	  <th style="border: 1px solid black;">To</th>
+	  <th style="border: 1px solid black;">Time spent</th>
+	  <th style="border: 1px solid black;">Description</th>
+ 	  <!-- <th style="border: 1px solid black;">Actions</th> -->
+	</tr>
+	
+	<% @hours.each do |hour| %>
+	<tr>
+	  <td><%=h hour.project.name %></td>
+	  <td><%=h hour.user.login %></td>
+	  <td><%=h hour.activity.name %></td>
+	  <td><%=h hour.log_date.strftime('%a - %m/%d/%Y') %></td>
+	  <td><%=h hour.from.strftime("%H:%M") %></td>
+	  <td><%=h hour.to.strftime("%H:%M") %></td>
+	  <td> <%= hour.time_period.join(" ") %></td>
+	  <td><%=h hour.description %></td>
+	  <!-- 
+          <td><%= link_to 'Show', hour %></td>
+	  <td><%= link_to 'Edit', edit_hour_path(hour) %></td>
+	  <td><%= link_to 'Destroy', hour, :confirm => 'Are you sure?', :method => :delete %></td>
+	  -->
+	</tr>
+	<% end %>
+      </table>
+      
+      <br />
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+<%= render :partial => "new" %>

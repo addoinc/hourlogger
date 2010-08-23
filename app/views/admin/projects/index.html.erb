@@ -1,0 +1,29 @@
+<div class="ez-fl ez-negmr ez-75">
+  
+  <div class="ez-box">
+
+    <h1>All Projects</h1>
+    
+    <table>
+	<tr>
+	  <th>Project Namme</th>
+ 	  <th>Actions</th>
+	</tr>
+	
+	<%- @projects.each do |project| -%>
+	<tr>
+	  <td><%=h project.name %></td>
+	  <!-- <td><%#= link_to 'Show', admin_project_path(project) %></td> -->
+	  <td><%= link_to 'Edit', edit_admin_project_path(project) %></td>
+	  <td><%= link_to 'Destroy', admin_project_path(project), :confirm => 'Are you sure?', :method => :delete %></td>
+	</tr>
+	<%- end -%>
+    </table>
+    
+    <br />
+    
+    <%= link_to "Add New Project", new_admin_project_path %>
+    
+  </div>
+  
+</div>

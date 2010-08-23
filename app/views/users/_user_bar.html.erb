@@ -1,0 +1,35 @@
+<div style="float: right;">
+
+<% if logged_in? -%>
+
+  <div id="user-bar-greeting" style="clear: none; float: right;">
+    Logged in as <%= link_to current_user.login, edit_user_path(current_user) %>
+  </div>
+  <div id="user-bar-action" style="clear: none; float: right;">
+    (<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)
+  </div>
+  <%- if current_user.has_role?("admin") -%>
+  <%- if controller.controller_name == "hours" -%>
+  <a href="/admin/projects">Projects</a> | <a href="/admin/activities">Activities</a> &nbsp;
+  <%- end -%>
+  <%- end -%>
+
+  <%- if controller.controller_name != "hours" -%>
+  <a href="/hours">Home</a>
+  <%- end -%>
+
+<% else -%>
+
+  <div id="user-bar-action" style="clear: none; float: right;">
+    <%= link_to "Log in",  login_path,  { :title => "Log in" } %> /
+    <%= link_to "Sign up", signup_path, { :title => "Create an account" } %>
+  </div>
+
+  <div id="user-bar-greeting" style="clear: none; float: right;">
+    <%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %>
+    &nbsp;
+  </div>
+
+<% end -%>
+
+</div>

@@ -1,0 +1,28 @@
+class CreateActivities < ActiveRecord::Migration
+  def self.up
+    create_table :activities do |t|
+      t.string :name
+
+      t.timestamps
+    end
+    
+    [
+     '"A" BUG FIXING', '"B" BUG FIXING', 'ADMINISTRATIVE WORK', 'CLIENT COMMUNICATION',
+     'CLIENT INTERACTIONS', 'CODING', 'COMMUNITY CONTRIBUTION', 'CSS/HTML CONVERSION',
+     'CUSTOMER INTERACTION', 'CV SOURCING', 'DEVELOPMENT TO STAGING', 'DOCUMENTATION',
+     'ESTIMATES', 'FOLLOW UPS', 'INTERVIEWS', 'LEAVE', 'MEET', 'ONSITE DELIVERY',
+     'PAYSLIP ISSUANCE', 'PREPARING THE ACTUALS', 'PROJECT ADMINISTRATION', 'PROJECT MANAGEMENT',
+     'PROPOSALS', 'RECRUITMENTS', 'REPORT ANALYSIS', 'REPORT CREATION', 'RESEARCH', 'RESOLVING ALIGN ISSUES',
+     'REVIEW BIG FIXING', 'REVIEW BUG FIXING', 'SALARY CALCULATION', 'SELF LEARNING', 'STAGING TO PRODUCTION',
+     'SYSTEM PREPRATION', 'TASK BREAKDOWN', 'TEAM ACTIVITIES', 'TEMPLATE DESIGN', 'TESTING', 'THEMEING',
+     'TRACKER UPDATION', 'TRAINING', 'UNIT TESTING', 'VOUCHER FILLING'
+    ].each do |activity|
+      execute(%Q|insert into activities(name) values('#{activity}')|)
+    end
+    
+  end
+
+  def self.down
+    drop_table :activities
+  end
+end

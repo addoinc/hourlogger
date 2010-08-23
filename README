@@ -1,0 +1,9 @@
+======== HourLogger ========
+*) Setup 
+  a) rake db:create
+  b) rake db:migrate
+  
+*) Generate xls report
+  a) rake db:report -- will generate report xls at: /tmp/hour_log.xls
+
+*) default admin user: admin / letmeinnow

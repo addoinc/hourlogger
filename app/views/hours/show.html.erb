@@ -1,0 +1,33 @@
+<p>
+  <b>Project:</b>
+  <%=h @hour.project.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @hour.user.login %>
+</p>
+
+<p>
+  <b>Log date:</b>
+  <%=h @hour.log_date %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%=h @hour.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%=h @hour.to %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @hour.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_hour_path(@hour) %> |
+<%= link_to 'Back', hours_path %>

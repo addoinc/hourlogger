@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+projectone:
+  id: 1
+  name: projectone
+  created_at: <%= 5.days.ago.to_s :db  %>
+  updated_at: <%= 5.days.ago.to_s :db  %>
+
+projectwo:
+  id: 2
+  name: projecttwo
+  created_at: <%= 5.days.ago.to_s :db  %>
+  updated_at: <%= 5.days.ago.to_s :db  %>

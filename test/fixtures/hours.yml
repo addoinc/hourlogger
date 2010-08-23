@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  user_id: 1
+  log_date: 2010-07-28
+  from: 2010-07-28 17:53:04
+  to: 2010-07-28 17:53:04
+  description: MyText
+
+two:
+  project_id: 1
+  user_id: 1
+  log_date: 2010-07-28
+  from: 2010-07-28 17:53:04
+  to: 2010-07-28 17:53:04
+  description: MyText
